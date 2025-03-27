@@ -1,0 +1,13 @@
+---
+- name: Testing play
+  hosts: localhost
+  become: true
+  gather_facts: yes
+  tasks:
+    - name: excel trigger
+      shell: free -h
+      register: storage
+
+    - name: display
+      debug:
+         msg: "{{ storage }}"
