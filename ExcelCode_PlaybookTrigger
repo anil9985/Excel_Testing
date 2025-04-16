@@ -1,0 +1,26 @@
+# Sample visual editor excel code to trigger Ansible playbook from Excel
+Sub TriggerAnsiblePlaybook()
+  'Declare variables
+  Dim apiUrl As String
+  Dim apiToken As String
+  Dim playbookId As String
+  Dim params As String
+
+  'Set variables
+  apiUrl = "template url"
+  apiToken = "Replace token from ansible tower playbook"
+  playbookId = "template id"
+
+'Create HTTPD request
+xhr.Open "POST/DELETE/", apiUrl &playbookId & "/launch/", False
+xhr.setRequestHeader "Authorization", "Bearer" & apiToken
+xhr.setrequestHeader "Content-Type","application/json"
+
+'Check response
+If xhr.status = 200 Then
+  MsgBox "Playbook Triggered Successfully"
+Else
+  MsgBox "Error in triggering playbook"
+End If
+End Sub
+
